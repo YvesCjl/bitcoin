@@ -1,0 +1,12 @@
+Web3.py documentation
+https://web3py.readthedocs.io/en/stable/web3.eth.html
+
+Contract deployment
+https://www.jianshu.com/p/7b4023be9b5e
+
+Key generating and storage
+https://blog.csdn.net/fei13971414170/article/details/82891641
+
+Event listening
+https://www.cnblogs.com/tinyxiong/p/9045274.html
+https://www.cnblogs.com/bergus/p/python-zhi-neng-he-yue-ri-zhi-cao-zuo.html
