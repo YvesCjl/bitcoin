@@ -9,86 +9,9 @@
 			{
 				"name": "domainName",
 				"type": "string"
-			},
-			{
-				"name": "fakeVcode",
-				"type": "uint256"
-			}
-		],
-		"name": "report",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "addr",
-				"type": "address"
-			},
-			{
-				"name": "domainName",
-				"type": "string"
 			}
 		],
 		"name": "register",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "addr",
-				"type": "address"
-			},
-			{
-				"name": "domainName",
-				"type": "string"
-			},
-			{
-				"name": "vcode",
-				"type": "uint256"
-			}
-		],
-		"name": "verify",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "domainName",
-				"type": "string"
-			}
-		],
-		"name": "queryTrustedCAs",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "CAs",
-				"type": "string"
-			}
-		],
-		"name": "modifyTrustedCAs",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
