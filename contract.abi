@@ -16,22 +16,5 @@
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"name": "addr",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "domainName",
-				"type": "string"
-			}
-		],
-		"name": "reg",
-		"type": "event"
 	}
 ]
