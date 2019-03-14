@@ -34,9 +34,9 @@ contract MyContract {
         reg_domain[addr].trustCAs = "";
         reg_domain[addr].stBlock = block.number;
         reg_domain[addr].isEntity = true;
-        balances[msg.sender] -= reg_fee;
+        /*balances[msg.sender] -= reg_fee;*/
         //msg.sender 全局变量，调用合约的发起方
-        verifing_domain[verifing_domain.length] = domainName;
+        //verifing_domain[verifing_domain.length] = domainName;
 		emit reg( addr, domainName );
     }
     
