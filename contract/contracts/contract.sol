@@ -1,4 +1,4 @@
-pragma solidity ^0.4.21;
+pragma solidity ^0.5.0;
 
 contract MyContract {
     
@@ -24,10 +24,10 @@ contract MyContract {
     uint constant reg_fee = 0;
     uint constant verify_reward = 10;
 
-	event register( address addr, string domainName );
+	event reg( address addr, string domainName );
     
     //register lets domains to register themself on blockchain.
-    function register(address addr, string domainName) {
+    function register(address addr, string memory domainName) public {
         //init the var to register
         reg_domain[addr].name = domainName;
         reg_domain[addr].count = 0;
@@ -37,10 +37,10 @@ contract MyContract {
         balances[msg.sender] -= reg_fee;
         //msg.sender 全局变量，调用合约的发起方
         verifing_domain[verifing_domain.length] = domainName;
-		emit register( addr, domainName );
+		emit reg( addr, domainName );
     }
     
-    function report(address addr, string domainName, uint256 fakeVcode) {
+    function report(address addr, string memory domainName, uint256 fakeVcode) public {
         //get the register blockinfo of domain
         //verify the sign of fakeVcode
         //calculate the challege
@@ -48,35 +48,35 @@ contract MyContract {
         reg_domain[addr].isEntity = false;
         balances[msg.sender] += verify_reward/2;
         balances[addr] -= reg_fee;
-        verifing_domain[verifing_domain.length] = domainNxame;
+        verifing_domain[verifing_domain.length] = domainName;
 
     }
     
-    function verify(address addr,string domainName, uint256 vcode) {
+    function verify(address addr,string memory domainName, uint256 vcode) public {
         //get the register blockinfo of domain
         //calculate the challenge
         //verify the vcode and update the progress of register
-        auth_times -= 1;
+        /*auth_times -= 1;
         auth_domain[addr].name = domainName;
         auth_domain[addr].stBlock = block.number;
         auth_domain[addr].count += 1;
         auth_domain[addr].validator[mapForId] = this.addr;
-        auth_domain[addr].isEntity = true;
+        auth_domain[addr].isEntity = true;*/
         verifing_domain[verifing_domain.length] = domainName;
     }
     
-    function modifyTrustedCAs(string CAs) {
+    function modifyTrustedCAs(string memory CAs) public {
         //check the progress of register
         //check the right to modify 
-        string name = reg_domain[msg.sender].name;
-        if(keccak256(name) == keccak256("") || !auth_domain[name].isEntity) {
-            throw() ;
-        }
+        string memory name = reg_domain[msg.sender].name;
+        //if(keccak256(name) == keccak256("") || !auth_domain[name].isEntity) {
+            //throw;
+        //}
         //do action
         auth_domain[name].trustCAs = CAs;
     }
     
-    function queryTrustedCAs(string domainName) public view returns(string) {
+    function queryTrustedCAs(string memory domainName) public view returns( string memory ) {
         //return the trustCAs of queried domain
         return auth_domain[domainName].trustCAs;
     }
