@@ -5,10 +5,12 @@ Contract deployment
 https://blog.csdn.net/tangyangyu123/article/details/80738919
 https://www.jianshu.com/p/7b4023be9b5e
 
-Key generating and storage
+Key generating and sign-verify
 https://blog.csdn.net/fei13971414170/article/details/82891641
+https://web3py.readthedocs.io/en/stable/web3.eth.account.html#sign-a-message
 
 Event listening
+https://web3py.readthedocs.io/en/stable/filters.html#web3.utils.filters.LogFilter
 https://www.cnblogs.com/tinyxiong/p/9045274.html
 https://www.cnblogs.com/bergus/p/python-zhi-neng-he-yue-ri-zhi-cao-zuo.html
 
