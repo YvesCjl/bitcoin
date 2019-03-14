@@ -29,12 +29,12 @@ contract MyContract {
     //register lets domains to register themself on blockchain.
     function register(address addr, string memory domainName) public {
         //init the var to register
-        /*reg_domain[addr].name = domainName;
+        reg_domain[addr].name = domainName;
         reg_domain[addr].count = 0;
         reg_domain[addr].trustCAs = "";
         reg_domain[addr].stBlock = block.number;
         reg_domain[addr].isEntity = true;
-        balances[msg.sender] -= reg_fee;*/
+        /*balances[msg.sender] -= reg_fee;*/
         //msg.sender 全局变量，调用合约的发起方
         //verifing_domain[verifing_domain.length] = domainName;
 		emit reg( addr, domainName );
