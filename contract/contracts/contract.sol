@@ -80,4 +80,6 @@ contract MyContract {
         //return the trustCAs of queried domain
         return auth_domain[domainName].trustCAs;
     }
+
+	function Test() public {}
 }
