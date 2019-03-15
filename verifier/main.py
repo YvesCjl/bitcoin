@@ -8,7 +8,7 @@ import os
 
 w3 = Web3( HTTPProvider( "http://127.0.0.1:8545" ) )
 w3.eth.defaultAccount = w3.eth.accounts[-2]
-contract = w3.eth.contract( address="0x440CB52DA138b4003994A7Ff2BC8356e2B436E96", abi=json.load( open( "../contract/contracts/contract.abi", "r" ) ) )
+contract = w3.eth.contract( address=open( "../contract/contract_address", "r" ).read().strip( '\n' ), abi=json.load( open( "../contract/contracts/contract.abi", "r" ) ) )
 
 try:
     prkey = Account.decrypt( json.load( open( "./.keystore/key", "r" ) ), "123" )
