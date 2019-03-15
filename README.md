@@ -1,5 +1,15 @@
 # PKI
 
+## Steps to run
+
+terminal 1: ganache-cli -l 10000000000 -e 10000000000
+
+terminal 2: cd contract; truffle migrate
+
+terminal 3: cd verifier; edit main.py with contract address; python main.py
+
+terminal 4: cd website; edit main.py with contract address; python main.py
+
 ## Contract
 
 ./contract truffle files
@@ -13,3 +23,9 @@
 ## website client
 
 ./website/main.py client python code
+
+## verifier client
+
+./verifier/main.py client python code
+
+
