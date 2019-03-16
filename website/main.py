@@ -24,9 +24,11 @@ def register( name ):
     vcode = w3.eth.account.signHash( defunct_hash_message( text=chal ), private_key=prkey )
     with open( "./"+path, "wb" ) as fd:
         fd.write( vcode.signature )
-    contract.functions.Test().call()
-    contract.functions.register( account.address, name ).transact( transaction={ "gas":1145141919 } )
-    print( account.address )
-    print( w3.eth.account.recoverHash( defunct_hash_message( text=chal ), signature=vcode.signature ) )
+    #contract.functions.Test().call()
+    txn = contract.functions.register( account.address, name ).transact( transaction={ "gas":1145141919 } )
+    #txn = contract.functions.Test().transact( transaction={ "gas": 1145141919 } )
+    print( w3.eth.getTransactionReceipt( txn ) )
+    #print( account.address )
+    #print( w3.eth.account.recoverHash( defunct_hash_message( text=chal ), signature=vcode.signature ) )
 	
 register( "www.baidu.com" )

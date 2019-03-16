@@ -22,21 +22,18 @@ def verify( address, name ):
     fhash = hashlib.sha256( ( address+name ).encode( "utf8" ) ).hexdigest()
     path, chal = fhash[ :32 ], fhash[ 32: ]
     try:
-        fd = open( "../website/"+path, "rb" )
-        if w3.eth.account.recoverHash( defunct_hash_message( text=chal ), signature=fd.read() )==address:
+        sig = open( "../website/"+path, "rb" ).read()
+        if w3.eth.account.recoverHash( defunct_hash_message( text=chal ), signature=sig )==address:
             print( "Verify passed!" )
-            return True
+            contract.functions.verify( account.address, address, sig ).transact( transaction={ "gas": 1145141919 } )
     except:
         print( "Failed!" )
-        return False
 
 evefil = contract.events.reg.createFilter( fromBlock=0 )
 while True: 
     for event in evefil.get_new_entries():
-        if verify( event.args[ "addr" ], event.args[ "domainName" ] ):
-            pass
-        else:
-            pass
+        print( "caught" )
+        verify( event.args[ "addr" ], event.args[ "domainName" ] )
     time.sleep( 5 )
     #print( w3.eth.account.recoverHash( defunct_hash_message( text=chal ), signature=vcode.signature ) )
     #contract.functions.Test().call()

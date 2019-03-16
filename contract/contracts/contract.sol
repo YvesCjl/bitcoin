@@ -33,7 +33,7 @@ contract MyContract {
         reg_domain[addr].isEntity = true;
        //msg.sender 全局变量，调用合约的发起方
        //verifing_domain[verifing_domain.length] = domainName;
-		emit reg( addr, domainName );
+        emit reg( addr, domainName );
     }
     
     function report(address addr, string memory domainName, uint256 fakeVcode) public {
@@ -49,11 +49,12 @@ contract MyContract {
         //get the register blockinfo of domain
         //calculate the challenge
         //verify the vcode and update the progress of register
-        auth_domain[addr].name = domainName;
+        /*auth_domain[addr].name = domainName;
         auth_domain[addr].stBlock = block.number;
         auth_domain[addr].count += 1;
-        auth_domain[addr].isEntity = true;
+        auth_domain[addr].isEntity = true;*/
         //verifing_domain[verifing_domain.length] = domainName;
+        ++ reg_domain[addr].count;
     }
     
     function modifyTrustedCAs(string memory CAs) public {
@@ -73,8 +74,5 @@ contract MyContract {
     }
 
 	function Test() public {
-		while ( 1 )
-			{
-			}
 	}
 }
