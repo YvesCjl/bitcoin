@@ -1,6 +1,10 @@
 # PKI
 
-## Steps to run
+## automatic runs
+
+./run.sh
+
+## ~~Steps to run~~
 
 terminal 1: ganache-cli -l 10000000000 -e 10000000000
 
