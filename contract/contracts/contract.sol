@@ -53,7 +53,7 @@ contract MyContract {
         auth_domain[addr].stBlock = block.number;
         auth_domain[addr].count += 1;
         auth_domain[addr].isEntity = true;
-        verifing_domain[verifing_domain.length] = domainName;
+        //verifing_domain[verifing_domain.length] = domainName;
     }
     
     function modifyTrustedCAs(string memory CAs) public {
