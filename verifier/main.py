@@ -1,6 +1,7 @@
 import hashlib
 import json
 import time
+from hexbytes import HexBytes
 from eth_account import Account
 from eth_account.messages import defunct_hash_message
 from web3 import Web3, HTTPProvider, TestRPCProvider
@@ -21,13 +22,13 @@ account = Account.privateKeyToAccount( prkey )
 def verify( address, name ):
     fhash = hashlib.sha256( ( address+name ).encode( "utf8" ) ).hexdigest()
     path, chal = fhash[ :32 ], fhash[ 32: ]
-    try:
-        sig = open( "../website/"+path, "rb" ).read()
-        if w3.eth.account.recoverHash( defunct_hash_message( text=chal ), signature=sig )==address:
-            print( "Verify passed!" )
-            contract.functions.verify( account.address, address, sig ).transact( transaction={ "gas": 1145141919 } )
-    except:
-        print( "Failed!" )
+    #try:
+    sig = open( "../website/"+path, "rb" ).read()
+    if w3.eth.account.recoverHash( defunct_hash_message( text=chal ), signature=sig )==address:
+        print( "Verify passed!" )
+        contract.functions.verify( address, name, 0 ).transact( transaction={ "gas": 1145141919 } )
+    #except:
+    #    print( "Failed!" )
 
 evefil = contract.events.reg.createFilter( fromBlock=0 )
 while True: 

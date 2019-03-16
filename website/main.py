@@ -1,8 +1,10 @@
 import hashlib
 import json
+import time
 from eth_account import Account
 from eth_account.messages import defunct_hash_message
 from web3 import Web3, HTTPProvider, TestRPCProvider
+from functools import reduce
 import os
 
 w3 = Web3( HTTPProvider( "http://127.0.0.1:8545" ) )
@@ -25,10 +27,18 @@ def register( name ):
     with open( "./"+path, "wb" ) as fd:
         fd.write( vcode.signature )
     #contract.functions.Test().call()
-    txn = contract.functions.register( account.address, name ).transact( transaction={ "gas":1145141919 } )
+
+    resfil = contract.events.reg_done.createFilter( fromBlock=0 )
+    contract.functions.register( account.address, name ).transact( transaction={ "gas":1145141919 } )
+    for _ in range( 8 ):
+        time.sleep( 2 )
+        if reduce( lambda S, x: S or x.args[ "addr" ]==account.address and x.args[ "domainName" ]==name, resfil.get_new_entries(), False ):
+            return True
+    return False
+    
     #txn = contract.functions.Test().transact( transaction={ "gas": 1145141919 } )
-    print( w3.eth.getTransactionReceipt( txn ) )
+    #print( w3.eth.getTransactionReceipt( txn ) )
     #print( account.address )
     #print( w3.eth.account.recoverHash( defunct_hash_message( text=chal ), signature=vcode.signature ) )
 	
-register( "www.baidu.com" )
+print( register( "www.baidu.com" ) )
