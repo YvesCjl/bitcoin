@@ -13,9 +13,6 @@ contract MyContract {
     
     mapping(address => Domain) reg_domain;  //待认证域名
     mapping(string => Domain)  auth_domain; //已认证域名
-    mapping (address => uint) balances;     //余额
-    string[] verifing_domain;
-    mapping(string => uint) mapForId;
     
     
     //some constant
@@ -34,9 +31,8 @@ contract MyContract {
         reg_domain[addr].trustCAs = "";
         reg_domain[addr].stBlock = block.number;
         reg_domain[addr].isEntity = true;
-        /*balances[msg.sender] -= reg_fee;*/
-        //msg.sender 全局变量，调用合约的发起方
-        //verifing_domain[verifing_domain.length] = domainName;
+       //msg.sender 全局变量，调用合约的发起方
+       //verifing_domain[verifing_domain.length] = domainName;
 		emit reg( addr, domainName );
     }
     
@@ -45,23 +41,18 @@ contract MyContract {
         //verify the sign of fakeVcode
         //calculate the challege
         //verify the mismatch of challenge and fakeVcode
-        reg_domain[addr].isEntity = false;
-        balances[msg.sender] += verify_reward/2;
-        balances[addr] -= reg_fee;
-        verifing_domain[verifing_domain.length] = domainName;
-
+        //reg_domain[addr].isEntity = false;
+        //verifing_domain[verifing_domain.length] = domainName;
     }
     
     function verify(address addr,string memory domainName, uint256 vcode) public {
         //get the register blockinfo of domain
         //calculate the challenge
         //verify the vcode and update the progress of register
-        /*auth_times -= 1;
         auth_domain[addr].name = domainName;
         auth_domain[addr].stBlock = block.number;
         auth_domain[addr].count += 1;
-        auth_domain[addr].validator[mapForId] = this.addr;
-        auth_domain[addr].isEntity = true;*/
+        auth_domain[addr].isEntity = true;
         verifing_domain[verifing_domain.length] = domainName;
     }
     
@@ -81,5 +72,9 @@ contract MyContract {
         return auth_domain[domainName].trustCAs;
     }
 
-	function Test() public {}
+	function Test() public {
+		while ( 1 )
+			{
+			}
+	}
 }
