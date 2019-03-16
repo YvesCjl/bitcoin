@@ -9,28 +9,6 @@
 			{
 				"name": "domainName",
 				"type": "string"
-			},
-			{
-				"name": "fakeVcode",
-				"type": "uint256"
-			}
-		],
-		"name": "report",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "addr",
-				"type": "address"
-			},
-			{
-				"name": "domainName",
-				"type": "string"
 			}
 		],
 		"name": "register",
@@ -104,6 +82,28 @@
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "addrVer",
+				"type": "address"
+			},
+			{
+				"name": "addrWeb",
+				"type": "address"
+			},
+			{
+				"name": "domainName",
+				"type": "string"
+			}
+		],
+		"name": "report",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -118,6 +118,23 @@
 			}
 		],
 		"name": "reg",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "domainName",
+				"type": "string"
+			}
+		],
+		"name": "reg_done",
 		"type": "event"
 	}
 ]

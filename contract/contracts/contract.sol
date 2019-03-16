@@ -16,12 +16,13 @@ contract MyContract {
     
     
     //some constant
-    uint constant auth_times = 10;
+    uint constant auth_times = 1;
     uint constant limit_blocks = 100; // the max num of blocks to complete the auth 
     uint constant reg_fee = 0;
     uint constant verify_reward = 10;
 
 	event reg( address addr, string domainName );
+	event reg_done( address addr, string domainName );
     
     //register lets domains to register themself on blockchain.
     function register(address addr, string memory domainName) public {
@@ -36,7 +37,7 @@ contract MyContract {
         emit reg( addr, domainName );
     }
     
-    function report(address addr, string memory domainName, uint256 fakeVcode) public {
+    function report(address addrVer, address addrWeb, string memory domainName) public {
         //get the register blockinfo of domain
         //verify the sign of fakeVcode
         //calculate the challege
@@ -54,7 +55,10 @@ contract MyContract {
         auth_domain[addr].count += 1;
         auth_domain[addr].isEntity = true;*/
         //verifing_domain[verifing_domain.length] = domainName;
-        ++ reg_domain[addr].count;
+		reg_domain[addr].validator.push( msg.sender );
+        if ( ( ++reg_domain[addr].count )>=auth_times )
+			auth_domain[domainName] = reg_domain[addr];
+			emit reg_done( addr, domainName );
     }
     
     function modifyTrustedCAs(string memory CAs) public {
