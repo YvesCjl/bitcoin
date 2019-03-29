@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="popup.js"></script>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="web3.min.js"></script>
+    <script type="text/javascript" src="abi.js"></script>
+    <style>
+      body {
+        color: #777;
+        width: 240px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-family: 'Roboto', arial, sans-serif;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 150%;
+      }
+      .title-box {
+        color: #FFF;
+        background: #888;
+        padding: 4px;
+        border-radius: 4px;
+      }
+      .text-small {
+        font-size: 12px;
+        color: #878787;
+      }
+    </style>
+  </head>
+  <body>
+
+    <p><span id="lblValidationResult" class="title-box">No HTTP(S) page loaded</span></p>
+    <p><span id="detail" class="text-small">null</br> </span></p>
+
+    <hr>
+
+    <p>
+      Trusted CA:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> <span id="infoFromBlockchain"> null</span> </b> <br/>
+      Search Entity:&nbsp;&nbsp;<b> <span id="search_entity"> null</span> </b> </br>
+      Source:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> <span id="source"> null</span> </b> 
+    </p>
+
+    <hr>
+    <!-- <p><span id="hostname" class="title-box"> hostname</span></p> -->
+    <!-- //margin-top: 18px; -->
+    <P> <b> Certificate Information </b> </P>
+    <p style="">Organization:<br>
+      <b>
+        <span id="lblSubjectOrganization"> null </span>
+      </b>
+    </p>
+     <!-- style="display: none;" -->
+    <p id="pIssuer">
+      <span>Issuer:</span><br />
+      <span id="lblIssuerOrganization"><b></b></span><br />
+      <span id="lblIssuerCommonName" class="text-small"></span><br />
+    </p>
+    <!-- <p><span id="lblMessage">Certificate information will display here when you open an HTTPS page.</span></p> -->
+  </body>
+</html>
