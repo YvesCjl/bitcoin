@@ -3,20 +3,6 @@ var abiArray = [
 		"constant": false,
 		"inputs": [
 			{
-				"name": "CAs",
-				"type": "string"
-			}
-		],
-		"name": "modifyTrustedCAs",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
 				"name": "addr",
 				"type": "address"
 			},
@@ -26,24 +12,6 @@ var abiArray = [
 			}
 		],
 		"name": "register",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "addr",
-				"type": "address"
-			},
-			{
-				"name": "domainName",
-				"type": "string"
-			}
-		],
-		"name": "report",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -75,39 +43,6 @@ var abiArray = [
 		"constant": true,
 		"inputs": [
 			{
-				"name": "index",
-				"type": "uint256"
-			}
-		],
-		"name": "get_verifing_domain_name_by_index",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "get_verifing_domain_num",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
 				"name": "domainName",
 				"type": "string"
 			}
@@ -124,82 +59,83 @@ var abiArray = [
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "name",
-				"type": "string"
-			}
-		],
-		"name": "show_auth",
-		"outputs": [
-			{
-				"name": "name1",
-				"type": "string"
-			},
-			{
-				"name": "addr",
-				"type": "address"
-			},
-			{
-				"name": "count",
-				"type": "uint256"
-			},
-			{
-				"name": "CAs",
-				"type": "string"
-			},
-			{
-				"name": "num",
-				"type": "uint256"
-			},
-			{
-				"name": "isEntity",
-				"type": "bool"
-			}
-		],
+		"constant": false,
+		"inputs": [],
+		"name": "Test",
+		"outputs": [],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
+		"constant": false,
 		"inputs": [
-			{
-				"name": "addr",
-				"type": "address"
-			}
-		],
-		"name": "show_verify",
-		"outputs": [
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "addr1",
-				"type": "address"
-			},
-			{
-				"name": "count",
-				"type": "uint256"
-			},
 			{
 				"name": "CAs",
 				"type": "string"
-			},
-			{
-				"name": "num",
-				"type": "uint256"
-			},
-			{
-				"name": "isEntity",
-				"type": "bool"
 			}
 		],
+		"name": "modifyTrustedCAs",
+		"outputs": [],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "addrVer",
+				"type": "address"
+			},
+			{
+				"name": "addrWeb",
+				"type": "address"
+			},
+			{
+				"name": "domainName",
+				"type": "string"
+			}
+		],
+		"name": "report",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "domainName",
+				"type": "string"
+			}
+		],
+		"name": "reg",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "domainName",
+				"type": "string"
+			}
+		],
+		"name": "reg_done",
+		"type": "event"
 	}
 ];
 

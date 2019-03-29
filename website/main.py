@@ -45,5 +45,5 @@ def register( name ):
     return False
     
 print( register( "www.baidu.com" ) )
-sendTrans( contract.functions.modifyTrustedCAs( "PKU" ) )
+sendTrans( contract.functions.modifyTrustedCAs( "GlobalSign nv-sa" ) )
 

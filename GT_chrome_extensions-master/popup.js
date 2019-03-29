@@ -16,8 +16,8 @@
 var colors = {'': '#888', 'gray': '#888', 'red': '#FF1744', 'orange': '#EF6C00'}
 
 function fetchOwnCertInfo(hostname){
-    var account = '0x67EC76aD62A83A32ecE695D5F7E9580c2E625b80'; // Dev
-    var contractAddress = '0x7dd6f5b21cba0dfc0ea1de7169cedd99993e4387';
+    var account = '0xe3112f6664f425d16957f3fde98bd7464a1fd7eb'; // Dev
+    var contractAddress = '0xAf0F1F13ED86A192feedCD2f1613a198b7d3133c';
 
     console.log(abiArray);
 
